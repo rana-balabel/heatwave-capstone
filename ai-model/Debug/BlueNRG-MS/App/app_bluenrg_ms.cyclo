@@ -1,0 +1,5 @@
+../BlueNRG-MS/App/app_bluenrg_ms.c:9:6:IDB05A2_BlueNRG_MS_Init	3
+../BlueNRG-MS/App/app_bluenrg_ms.c:94:6:user_notify	8
+../BlueNRG-MS/App/app_bluenrg_ms.c:134:6:Set_DeviceConnectable	1
+../BlueNRG-MS/App/app_bluenrg_ms.c:157:6:MX_BlueNRG_MS_Process	1
+../BlueNRG-MS/App/app_bluenrg_ms.c:168:6:transmit_heatstroke_data	4

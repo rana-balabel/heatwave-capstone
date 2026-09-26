@@ -1,0 +1,173 @@
+ST Edge AI Core v2.1.0-20201 42a90031b
+Created date          : 2026-03-10 14:51:06
+Parameters            : generate --target stm32f4 --name heatwaves_model -m /Users/ayushganguly/Documents/FYDP/heatwave/AI/heatwave_model_updated.tflite --compression none --verbosity 1 --workspace /var/folders/rd/5zstcb7s5693ycn6jp0glgjw0000gn/T/mxAI_workspace7943346606512414383834706467251366 --output /Users/ayushganguly/.stm32cubemx/heatwaves_model_output
+
+Exec/report summary (generate)
+---------------------------------------------------------------------------------------------------------------------------
+model file         :   /Users/ayushganguly/Documents/FYDP/heatwave/AI/heatwave_model_updated.tflite                        
+type               :   tflite                                                                                              
+c_name             :   heatwaves_model                                                                                     
+compression        :   none                                                                                                
+options            :   allocate-inputs, allocate-outputs                                                                   
+optimization       :   balanced                                                                                            
+target/series      :   stm32f4                                                                                             
+workspace dir      :   /var/folders/rd/5zstcb7s5693ycn6jp0glgjw0000gn/T/mxAI_workspace7943346606512414383834706467251366   
+output dir         :   /Users/ayushganguly/.stm32cubemx/heatwaves_model_output                                             
+model_fmt          :   float                                                                                               
+model_name         :   heatwave_model_updated                                                                              
+model_hash         :   0xe973620e0c79bc850783d2845456a136                                                                  
+params #           :   71 items (284 B)                                                                                    
+---------------------------------------------------------------------------------------------------------------------------
+input 1/1          :   'serving_default_ke..tensor_320', f32(1x5), 20 Bytes, activations                                   
+output 1/1         :   'nl_3', f32(1x1), 4 Bytes, activations                                                              
+macc               :   181                                                                                                 
+weights (ro)       :   284 B (284 B) (1 segment)                                                                           
+activations (rw)   :   60 B (60 B) (1 segment) *                                                                           
+ram (total)        :   60 B (60 B) = 60 + 0 + 0                                                                            
+---------------------------------------------------------------------------------------------------------------------------
+(*) 'input'/'output' buffers can be used from the activations buffer
+
+Model name - heatwave_model_updated
+------ ------------------------------------------------ ------------ ------------ ------ -------------------------------- --- --------------- -------------- --------------------- 
+m_id   layer (type,original)                            oshape       param/size     macc                     connected to   | c_size          c_macc         c_type                
+------ ------------------------------------------------ ------------ ------------ ------ -------------------------------- --- --------------- -------------- --------------------- 
+0      serving_default_ke..tensor_320 (Input, )         [b:1,c:5]                                                           | +240(+100.0%)   +60(+100.0%)   Dense_[0]             
+       sequential_8_1_den..6_1_MatMul (Placeholder, )   [b:10,c:5]   50/200                                                 | -200(-100.0%)                  
+       sequential_8_1_den..VariableOp (Placeholder, )   [b:10]       10/40                                                  | -40(-100.0%)                   
+       gemm_0 (Gemm, FULLY_CONNECTED)                   [b:1,c:10]                    60   serving_default_ke..tensor_320   |                 -60(-100.0%)   
+                                                                                           sequential_8_1_den..6_1_MatMul   | 
+                                                                                           sequential_8_1_den..VariableOp   | 
+------ ------------------------------------------------ ------------ ------------ ------ -------------------------------- --- --------------- -------------- --------------------- 
+1      nl_1 (Nonlinearity, LOGISTIC)                    [b:1,c:10]                   100                           gemm_0   |                                Nonlinearity_[1]      
+------ ------------------------------------------------ ------------ ------------ ------ -------------------------------- --- --------------- -------------- --------------------- 
+2      arith_constant (Placeholder, )                   [b:1,c:10]   10/40                                                  | +4(+10.0%)      +11(+100.0%)   Dense_[2]             
+       arith_constant1 (Placeholder, )                  [b:1]        1/4                                                    | -4(-100.0%)                    
+       gemm_2 (Gemm, FULLY_CONNECTED)                   [b:1,c:1]                     11                             nl_1   |                 -11(-100.0%)   
+                                                                                                           arith_constant   | 
+                                                                                                          arith_constant1   | 
+------ ------------------------------------------------ ------------ ------------ ------ -------------------------------- --- --------------- -------------- --------------------- 
+3      nl_3 (Nonlinearity, LOGISTIC)                    [b:1,c:1]                     10                           gemm_2   |                                Nonlinearity_[o][3]   
+------ ------------------------------------------------ ------------ ------------ ------ -------------------------------- --- --------------- -------------- --------------------- 
+model/c-model: macc=181/181  weights=284/284  activations=--/60 io=--/0
+
+
+
+Generated C-graph summary
+------------------------------------------------------------------------------------------------------------------------
+model name            : heatwave_model_updated
+c-name                : heatwaves_model
+c-node #              : 4
+c-array #             : 9
+activations size      : 60 (1 segment)
+weights size          : 284 (1 segment)
+macc                  : 181
+inputs                : ['serving_default_keras_tensor_320_output']
+outputs               : ['nl_3_output']
+
+C-Arrays (9)
+------ ----------------------------------------- ----------- ------------------------- ------------- --------- 
+c_id   name (*_array)                            item/size   domain/mem-pool           c-type        comment   
+------ ----------------------------------------- ----------- ------------------------- ------------- --------- 
+0      gemm_0_bias                               10/40       weights/weights           const float             
+1      gemm_0_output                             10/40       activations/**default**   float                   
+2      gemm_0_weights                            50/200      weights/weights           const float             
+3      gemm_2_bias                               1/4         weights/weights           const float             
+4      gemm_2_output                             1/4         activations/**default**   float                   
+5      gemm_2_weights                            10/40       weights/weights           const float             
+6      nl_1_output                               10/40       activations/**default**   float                   
+7      nl_3_output                               1/4         activations/**default**   float         /output   
+8      serving_default_keras_tensor_320_output   5/20        activations/**default**   float         /input    
+------ ----------------------------------------- ----------- ------------------------- ------------- --------- 
+
+C-Layers (4)
+------ ---------------- ---- --------------- ------ ----- -------------------------------------------- ------------------ 
+c_id   name (*_layer)   id   layer_type      macc   rom   tensors                                      shape (array id)   
+------ ---------------- ---- --------------- ------ ----- -------------------------------------------- ------------------ 
+0      gemm_0           0    Dense           60     240   I: serving_default_keras_tensor_320_output   f32(1x5) (8)       
+                                                          W: gemm_0_weights                            f32(10x5) (2)      
+                                                          W: gemm_0_bias                               f32(10) (0)        
+                                                          O: gemm_0_output                             f32(1x10) (1)      
+------ ---------------- ---- --------------- ------ ----- -------------------------------------------- ------------------ 
+1      nl_1             1    Nonlinearity    100    0     I: gemm_0_output                             f32(1x10) (1)      
+                                                          O: nl_1_output                               f32(1x10) (6)      
+------ ---------------- ---- --------------- ------ ----- -------------------------------------------- ------------------ 
+2      gemm_2           2    Dense           11     44    I: nl_1_output                               f32(1x10) (6)      
+                                                          W: gemm_2_weights                            f32(1x10) (5)      
+                                                          W: gemm_2_bias                               f32(1) (3)         
+                                                          O: gemm_2_output                             f32(1x1) (4)       
+------ ---------------- ---- --------------- ------ ----- -------------------------------------------- ------------------ 
+3      nl_3             3    Nonlinearity    10     0     I: gemm_2_output                             f32(1x1) (4)       
+                                                          O: nl_3_output                               f32(1x1) (7)       
+------ ---------------- ---- --------------- ------ ----- -------------------------------------------- ------------------ 
+
+
+
+Number of operations per c-layer
+------- ------ --------------------- ----- -------------- 
+c_id    m_id   name (type)             #op           type 
+------- ------ --------------------- ----- -------------- 
+0       0      gemm_0 (Dense)           60   smul_f32_f32 
+1       1      nl_1 (Nonlinearity)     100     op_f32_f32 
+2       2      gemm_2 (Dense)           11   smul_f32_f32 
+3       3      nl_3 (Nonlinearity)      10     op_f32_f32 
+------- ------ --------------------- ----- -------------- 
+total                                  181 
+
+Number of operation types
+---------------- ----- ----------- 
+operation type       #           % 
+---------------- ----- ----------- 
+smul_f32_f32        71       39.2% 
+op_f32_f32         110       60.8% 
+
+Complexity report (model)
+------ ---------------------------------- ------------------------- ------------------------- ------ 
+m_id   name                               c_macc                    c_rom                     c_id   
+------ ---------------------------------- ------------------------- ------------------------- ------ 
+0      serving_default_keras_tensor_320   ||||||||||        33.1%   ||||||||||||||||  84.5%   [0]    
+1      nl_1                               ||||||||||||||||  55.2%   |                  0.0%   [1]    
+2      arith_constant                     ||                 6.1%   |||               15.5%   [2]    
+3      nl_3                               ||                 5.5%   |                  0.0%   [3]    
+------ ---------------------------------- ------------------------- ------------------------- ------ 
+macc=181 weights=284 act=60 ram_io=0
+ 
+ Requested memory size by section - "stm32f4" target
+ ------------------------------ ------- -------- ------- ----- 
+ module                            text   rodata    data   bss 
+ ------------------------------ ------- -------- ------- ----- 
+ NetworkRuntime1010_CM4_GCC.a     6,052        0       0     0 
+ heatwaves_model.o                  472       32   1,264   136 
+ heatwaves_model_data.o              48       16      88     0 
+ lib (toolchain)*                   614       24       0     0 
+ ------------------------------ ------- -------- ------- ----- 
+ RT total**                       7,186       72   1,352   136 
+ ------------------------------ ------- -------- ------- ----- 
+ weights                              0      288       0     0 
+ activations                          0        0       0    60 
+ io                                   0        0       0     0 
+ ------------------------------ ------- -------- ------- ----- 
+ TOTAL                            7,186      360   1,352   196 
+ ------------------------------ ------- -------- ------- ----- 
+ *  toolchain objects (libm/libgcc*)
+ ** RT AI runtime objects (kernels+infrastructure)
+  
+  Summary - "stm32f4" target
+  ---------------------------------------------------
+               FLASH (ro)      %*   RAM (rw)       % 
+  ---------------------------------------------------
+  RT total          8,610   96.8%      1,488   96.1% 
+  ---------------------------------------------------
+  TOTAL             8,898              1,548         
+  ---------------------------------------------------
+  *  rt/total
+
+
+Generated files (7)
+--------------------------------------------------------------------------------------- 
+/Users/ayushganguly/.stm32cubemx/heatwaves_model_output/heatwaves_model_data_params.h   
+/Users/ayushganguly/.stm32cubemx/heatwaves_model_output/heatwaves_model_data_params.c   
+/Users/ayushganguly/.stm32cubemx/heatwaves_model_output/heatwaves_model_data.h          
+/Users/ayushganguly/.stm32cubemx/heatwaves_model_output/heatwaves_model_data.c          
+/Users/ayushganguly/.stm32cubemx/heatwaves_model_output/heatwaves_model_config.h        
+/Users/ayushganguly/.stm32cubemx/heatwaves_model_output/heatwaves_model.h               
+/Users/ayushganguly/.stm32cubemx/heatwaves_model_output/heatwaves_model.c               

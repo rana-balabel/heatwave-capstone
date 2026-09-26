@@ -1,0 +1,8 @@
+../BlueNRG-MS/Target/hci_tl_interface.c:44:9:HCI_TL_SPI_Init	40	static
+../BlueNRG-MS/Target/hci_tl_interface.c:80:9:HCI_TL_SPI_DeInit	8	static
+../BlueNRG-MS/Target/hci_tl_interface.c:94:9:HCI_TL_SPI_Reset	8	static
+../BlueNRG-MS/Target/hci_tl_interface.c:113:9:HCI_TL_SPI_Receive	48	static
+../BlueNRG-MS/Target/hci_tl_interface.c:161:9:HCI_TL_SPI_Send	48	static
+../BlueNRG-MS/Target/hci_tl_interface.c:217:16:IsDataAvailable	8	static
+../BlueNRG-MS/Target/hci_tl_interface.c:229:6:hci_tl_lowlevel_init	40	static
+../BlueNRG-MS/Target/hci_tl_interface.c:268:6:hci_tl_lowlevel_isr	8	static

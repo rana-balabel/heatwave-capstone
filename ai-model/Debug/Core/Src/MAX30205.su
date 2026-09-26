@@ -1,0 +1,3 @@
+../Core/Src/MAX30205.c:4:5:Read_SkinTemperature	24	static
+../Core/Src/MAX30205.c:21:9:Read_Config	24	static
+../Core/Src/MAX30205.c:35:9:Set_Config	24	static

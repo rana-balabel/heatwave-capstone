@@ -1,0 +1,5 @@
+../Core/Src/RTOSTasks.c:45:6:vApplicationStackOverflowHook	1
+../Core/Src/RTOSTasks.c:51:6:StartMAX30100Task	25
+../Core/Src/RTOSTasks.c:219:6:StartLTR390Task	3
+../Core/Src/RTOSTasks.c:248:6:StartAITask	8
+../Core/Src/RTOSTasks.c:383:6:StartSkinTempHeat	5

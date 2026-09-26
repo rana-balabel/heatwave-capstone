@@ -1,0 +1,3 @@
+../Core/Src/MAX30100.c:5:7:meanDiff	24	static
+../Core/Src/MAX30100.c:24:6:lowPassButterworthFilter	16	static
+../Core/Src/MAX30100.c:38:6:MAX30100_Init	32	static

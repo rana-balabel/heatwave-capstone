@@ -1,0 +1,12 @@
+../BlueNRG-MS/App/heatstroke_service.c:28:6:Heatstroke_SetValues	1
+../BlueNRG-MS/App/heatstroke_service.c:49:12:Add_Heatstroke_Service	8
+../BlueNRG-MS/App/heatstroke_service.c:158:12:Heatstroke_Update	2
+../BlueNRG-MS/App/heatstroke_service.c:178:12:EnvTemp_Update	2
+../BlueNRG-MS/App/heatstroke_service.c:195:12:SkinTemp_Update	2
+../BlueNRG-MS/App/heatstroke_service.c:211:12:Humidity_Update	2
+../BlueNRG-MS/App/heatstroke_service.c:227:12:ExpToSun_Update	2
+../BlueNRG-MS/App/heatstroke_service.c:243:12:HeartRate_Update	2
+../BlueNRG-MS/App/heatstroke_service.c:263:10:Heatstroke_GetCharHandle	1
+../BlueNRG-MS/App/heatstroke_service.c:272:6:Read_Request_CB	8
+../BlueNRG-MS/App/heatstroke_service.c:315:6:GAP_DisconnectionComplete_CB	1
+../BlueNRG-MS/App/heatstroke_service.c:329:6:GAP_ConnectionComplete_CB	2

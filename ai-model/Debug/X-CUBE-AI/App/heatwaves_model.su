@@ -1,0 +1,13 @@
+../X-CUBE-AI/App/heatwaves_model.c:280:9:heatwaves_model_configure_activations	16	static
+../X-CUBE-AI/App/heatwaves_model.c:309:9:heatwaves_model_configure_weights	16	static
+../X-CUBE-AI/App/heatwaves_model.c:342:9:ai_heatwaves_model_get_info	160	static
+../X-CUBE-AI/App/heatwaves_model.c:389:9:ai_heatwaves_model_get_report	160	static
+../X-CUBE-AI/App/heatwaves_model.c:436:10:ai_heatwaves_model_get_error	16	static
+../X-CUBE-AI/App/heatwaves_model.c:443:10:ai_heatwaves_model_create	24	static
+../X-CUBE-AI/App/heatwaves_model.c:454:10:ai_heatwaves_model_create_and_init	88	static
+../X-CUBE-AI/App/heatwaves_model.c:489:12:ai_heatwaves_model_inputs_get	16	static
+../X-CUBE-AI/App/heatwaves_model.c:500:12:ai_heatwaves_model_outputs_get	16	static
+../X-CUBE-AI/App/heatwaves_model.c:511:11:ai_heatwaves_model_destroy	16	static
+../X-CUBE-AI/App/heatwaves_model.c:518:9:ai_heatwaves_model_init	24	static
+../X-CUBE-AI/App/heatwaves_model.c:535:8:ai_heatwaves_model_run	24	static
+../X-CUBE-AI/App/heatwaves_model.c:543:8:ai_heatwaves_model_forward	16	static

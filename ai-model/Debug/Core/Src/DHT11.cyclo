@@ -1,0 +1,5 @@
+../Core/Src/DHT11.c:10:7:DHT11_ComputeHeatIndex	1
+../Core/Src/DHT11.c:39:6:DHT11_Start	1
+../Core/Src/DHT11.c:55:9:DHT11_CheckResponse	3
+../Core/Src/DHT11.c:70:9:DHT11_Read	4
+../Core/Src/DHT11.c:94:9:DHT11_ReadByte	5
